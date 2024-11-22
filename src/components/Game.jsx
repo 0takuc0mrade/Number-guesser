@@ -1,6 +1,9 @@
 import React from 'react';
 import GuessInput from './GuessInput';
 import DifficultySelector from './DifficultySelector';
+import Feedback from './Feedback';
+import AttemptsRemaining from './AttemptsRemaining';
+import GameEnd from './GameEnd';
 
 const Game = ({
   secretNumber,
