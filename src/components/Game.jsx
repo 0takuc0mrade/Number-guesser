@@ -38,4 +38,29 @@ const Game = ({
       setGameOver(true);
     }
   };
+  return (
+    <div className="p-4 bg-white rounded shadow-md w-full max-w-md">
+      {!gameOver && (
+        <DifficultySelector
+          difficulty={difficulty}
+          setDifficulty={setDifficulty}
+          restartGame={() => {
+            restartGame();
+            setAttemptsLeft(getAttemptsByDifficulty(difficulty));
+          }}
+        />
+      )}
+      <Feedback message={feedback} />
+      {!gameOver ? (
+        <>
+          <GuessInput handleGuess={handleGuess} />
+          <AttemptsRemaining attemptsLeft={attemptsLeft} />
+        </>
+      ) : (
+        <GameEnd restartGame={restartGame} />
+      )}
+    </div>
+  );
 };
+
+export default Game;
